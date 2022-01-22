@@ -1,0 +1,35 @@
+\begin{algorithm}[H]
+  \footnotesize
+  \caption{Zhang-Suen Thinning Algorithm}
+  \label{algo:zha84}
+  \begin{algorithmic}[1]
+    \Function{$zhang$-$skeletonization$}{$image$} \Return{$skeletonized$ $image$}
+      \State $skeleton \gets image$ with a padding of zeros \Comment{state at the $(n-1)$-iteration}
+      \State $cleanedSkeleton \gets image$ with a padding of zeros \Comment{state at the $(n)$-iteration}
+      \State $pixelRemoved \gets True$
+      \While{$pixelRemoved$} \Comment{iterate until no more pixels are removed}
+        \State $pixelRemoved\gets False$ 
+        \For{$iter\gets1$ \textbf{to} 2} \Comment{to avoid repeating code}
+          \For{$i\gets1$ \textbf{to} $rows-1$}
+            \For{$j\gets1$ \textbf{to} $cols-1$} \Comment{iterate over each pixel}
+              \If{$skeleton[i][j] = 1$}
+                \If{$2 \leq nonZeroNeighbours \leq 6$ AND \Comment{condition 1}
+                  \State $zeroOnePatterns$ $= 1$} \Comment{condition 2}
+                  \If{$iter = 1$ AND \State $P_2 * P_4 * P_6 = 0$ AND $P_4 * P_6 * P_8 = 0$} \Comment{condition 3, 4}
+                    \State $cleanedSkeleton[i][j] \gets 0$
+                    \State $pixelRemoved\gets True$ 
+                  \ElsIf{$iter = 2$ AND \State $P_2 * P_4 * P_8 = 0$ AND $P_2 * P_6 * P_8 = 0$} \Comment{condition 3, 4}
+                    \State $cleanedSkeleton[i][j] \gets 0$
+                    \State $pixelRemoved\gets True$ 
+                  \EndIf
+                \EndIf
+              \EndIf
+            \EndFor
+          \EndFor
+          \State $skeleton \gets cleanedSkeleton$
+        \EndFor
+      \EndWhile
+      \State \Return $skeleton$ without padding of zeros
+    \EndFunction
+  \end{algorithmic}
+\end{algorithm}
