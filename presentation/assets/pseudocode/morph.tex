@@ -1,0 +1,35 @@
+\begin{algorithm}[H]
+  \footnotesize
+  \caption{Morphological Thinning Algorithm}
+  \label{algo:morph}
+  \begin{algorithmic}[1]
+    \Function{$morphological$-$thinning$}{$image$} \Return{$skeletonized$ $image$}
+      \State $skeleton \gets image$ with a padding of zeros \Comment{state at the $(n-1)$-iteration}
+      \State $cleanedSkeleton \gets image$ with a padding of zeros \Comment{state at the $(n)$-iteration}
+      \State $thinningKernel \gets$ array of kernels for thinning operation
+      \State $spurKernels \gets$ array of kernels for spur removal operation
+      \State $pixelRemoved \gets True$
+      \While{$pixelRemoved$} \Comment{iterate until no more pixels are removed}
+        \State $pixelRemoved\gets False$ 
+        \State $cleanedSkeleton \gets$ \Call{$thin$}{$cleanedSkeleton, thinningKernels$} 
+        \If{$cleanedSkeleton \neq skeleton$}
+          \State $skeleton \gets cleanedSkeleton$, $pixelRemoved \gets True$
+        \EndIf
+      \EndWhile
+      \For{$i\gets 1$ \textbf{to} $pruningSteps$} \Comment{pruning loop}
+        \State $cleanedSkeleton \gets$ \Call{$thin$}{$cleanedSkeleton, spurKernels$} 
+        \If{$cleanedSkeleton = skeleton$} \textbf{break}\EndIf        
+        \State $skeleton \gets cleanedSkeleton$
+      \EndFor
+      \State \Return $skeleton$ without padding of zeros
+    \EndFunction
+\\
+    \Function{$thin$}{$image, kernels$}
+      \For{$kernel$ \textbf{in} $kernels$} 
+      \State $out \gets$ \Call{$hit\mbox{-}or\mbox{-}miss$}{$image, kernel$}
+      \State $image \gets image - out$
+    \EndFor
+    \State \Return $image$
+    \EndFunction
+  \end{algorithmic}
+\end{algorithm}
