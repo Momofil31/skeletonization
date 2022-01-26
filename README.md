@@ -3,7 +3,7 @@
 This repository cointains all the material (presentation, code, etc...) I developed for the Signal, Image & Video course project.
 
 ## Slides
-In releases is available the final version of the slides. It is also available in `presentation/build/presentation.pdf`
+In releases is available the final version of the slides. It is also available in the root as `presentation.pdf`
 
 If you want to compile it yourself, you need a LaTex distribution with the necessary packages installed.
 A simple compilation with pdflatex should be enough to get the pdf.
