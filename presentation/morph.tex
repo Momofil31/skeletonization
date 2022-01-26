@@ -26,7 +26,7 @@
 \begin{frame}[c]
   \frametitle{Morphological Thinning}
   \begin{block}
-    {Thinnig operation}
+    {Thinning operation}
     Given a binary image $I$ and a kernel $K$:
     \begin{equation}
       thin(I, K) = I - hit\mbox{-}or\mbox{-}miss(I, K)
@@ -43,7 +43,7 @@
 \begin{frame}
   \frametitle{Skeletonization Kernels}
   \begin{itemize}
-    \item Recalling Slide~\ref{sli:skeleton} a skeleton should preserve geometric and topological characteristics of the region such as connectivity, holes, cavities etc.
+    \item Recalling Slide~\ref{sli:skeleton} a skeleton should preserve topological characteristics of the region such as connectivity, holes, cavities etc.
     \item $thin(I, K)$ deletes pixels based on the kernel K.
     \item The two kernels below (and all their 90° rotations) allow to delete only pixels whose deletion preserves the above mentioned characteristics.
     \item In each iteration $thin(I, K)$ is executed for each of the 8 resulting kernels.
@@ -89,7 +89,7 @@
 
 \begin{frame}
   \frametitle{Kernels for Spur Removal}
-  By using the kernels (and all their 90° rotations) shown below is possible to remove spurs from skeleton.
+  By using the kernels (and all their 90° rotations) shown below it is possible to remove spurs from skeleton.
   \begin{columns}
     \begin{column}{0.5\textwidth}
       \begin{figure}
@@ -103,7 +103,7 @@
           \centering
           \includegraphics[width=\textwidth]{spur-2-kernel.png}
         \end{subfigure}
-        \caption{Spur removal kernels}
+        \caption{Spur removal kernels.}
       \end{figure}
     \end{column}
     \begin{column}{0.5\textwidth}

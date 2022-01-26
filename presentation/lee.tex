@@ -17,7 +17,7 @@
     \begin{column}{0.5\textwidth}
       \begin{figure}
         \includegraphics[width=0.9\textwidth]{tubular-skeleton.png}
-        \caption{In white the skeleton of a 3D tubular object}
+        \caption{In white the medial axes skeleton of a 3D tubular object.}
       \end{figure}
     \end{column}
   \end{columns}
@@ -26,7 +26,7 @@
 \begin{frame}
   \frametitle{Topological properties}
   \begin{itemize}
-    \item A 3D binary image is a 3D binary matrix of size $k_max \times j_max \times i_max$. Every pixel $v$ is represented by its coordinates $(k, j, i)$ and has the value $1$ or $0$.
+    \item A 3D binary image is a 3D binary matrix of size $k_{max}\times j_{max} \times i_{max}$. Every pixel $v$ is represented by its coordinates $(k, j, i)$ and has the value $1$ or $0$.
     \item When we talk about 3D geometries we can describe them in terms of their topological properties such as the number of \emph{connected objects}, \emph{cavities} and \emph{holes}.
     \item The \textbf{Euler Characteristic} $\chi$ is a compact way combine those characteristics in a number that describes the geometry.
           \begin{equation}
@@ -40,11 +40,11 @@
   \label{sli:euler-table}
   \frametitle{Neighborhoods}
   \begin{itemize}
-    \item Considering a pixel $v$, its $26$-neighbors $N(v)$ are defined based on the cube below.
+    \item Considering a pixel $v$, its $26$-neighbours $N(v)$ are defined based on the cube below.
           \begin{columns}
             \begin{column}{0.5\textwidth}
               \begin{figure}
-                \includegraphics[width=0.5\textwidth]{neighbors-cube.png}
+                \includegraphics[width=0.5\textwidth]{neighbours-cube.png}
                 \label{fig:cube-neighborhood}
               \end{figure}
               \begin{figure}
@@ -91,7 +91,7 @@
   \begin{itemize}
     \item The procedure recursively assigns labels to each pixel in the $26$-neighborhood.
     \item All connected pixels have the same label, i.e. each label represent a connected object.
-    \item If more than one different label is assigned, there is more than one connected object
+    \item If more than one different label is assigned, there is more than one connected object.
   \end{itemize}
 \end{frame}
 
@@ -104,7 +104,8 @@
             \begin{enumerate}
               \item Find a list of simple points candidates satisfying:
                     \begin{itemize}
-                      \item Non-endpoint
+                      \item Belongs to a border in the direction we're iterating on
+                      \item Not an end point
                       \item Euler-Invariant
                       \item Preserve connectivity (through \lstinline{N(v)_labeling})
                     \end{itemize}

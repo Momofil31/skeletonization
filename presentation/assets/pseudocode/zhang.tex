@@ -9,7 +9,7 @@
       \State $pixelRemoved \gets True$
       \While{$pixelRemoved$} \Comment{iterate until no more pixels are removed}
         \State $pixelRemoved\gets False$ 
-        \For{$iter\gets1$ \textbf{to} 2} \Comment{to avoid repeating code}
+        \For{$iter\gets1$ \textbf{to} 2} \Comment{sub-iterations}
           \For{$i\gets1$ \textbf{to} $rows-1$}
             \For{$j\gets1$ \textbf{to} $cols-1$} \Comment{iterate over each pixel}
               \If{$skeleton[i][j] = 1$}
