@@ -44,7 +44,7 @@
           \vspace{0.5cm}
     \item The algorithm iteratively removes all countour points (change the value from 1 to 0) which satisfy some conditions on their 8 neighbours.
           \\~\\
-    \item The new value of a pixel at the $n$-th iteration is based on the values of its neighbours at the $n-1$-th iteration. This allows all pixel to be processed in \textbf{parallel} at each iteration.
+    \item The new value of a pixel at the $n$-th iteration is based on the values of its neighbours at the $(n-1)$-th iteration. This allows all pixel to be processed in \textbf{parallel} at each iteration.
   \end{itemize}
 \end{frame}
 
@@ -54,19 +54,19 @@
     \item An iteration (full pass over all the pixels) is divided in two sub-iterations.
           \\~\\
     \item \textbf{Sub-iteration 1}: $P_1$ is deleted if
-          \begin{enumerate}
-            \item $2 \leq B(P_1) \leq 6$
-            \item $A(P_1) = 1$
-            \item $P_2 * P_4 * P_6 = 0$
-            \item $P_4 * P_6 * P_8 = 0$
-          \end{enumerate}
+          \begin{itemize}
+            \item [1.] $2 \leq B(P_1) \leq 6$
+            \item [2.]$A(P_1) = 1$
+            \item [3a.]$P_2 * P_4 * P_6 = 0$
+            \item [4a.]$P_4 * P_6 * P_8 = 0$
+          \end{itemize}
           \vspace{0.3cm}
     \item \textbf{Sub-iteration 2}: $P_1$ is deleted if
-          \begin{enumerate}
+          \begin{itemize}
             \item Conditions 1 and 2 are true
-            \item $P_2 * P_4 * P_8 = 0$
-            \item $P_2 * P_6 * P_8 = 0$
-          \end{enumerate}
+            \item [3b.] $P_2 * P_4 * P_8 = 0$
+            \item [4b.]$P_2 * P_6 * P_8 = 0$
+          \end{itemize}
           \vspace{0.3cm}
     \item $B(P_1)$ is the number of \textbf{1-value neighbours} of $P_1$. Condition 1 is needed to \textbf{preserve an endpoint} of the skeleton.
     \item $A(P_1)$ is the number of \textbf{0-1 patterns} in the ordered sequence of neighbours $P_2, P_3, \dots, P_9, P_2$. Condition 2 is needed to preserve \textbf{connectivity}, i.e. not split the skeleton in two.
