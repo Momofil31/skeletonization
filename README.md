@@ -35,13 +35,14 @@ In the folder `c++` there are three `.cpp` files:
 
 To run it you need to have installed OpenCV library and update `CMakeLists.txt` with your OpenCV installation path on line 12.
 To compile and run: 
-1. `cd c++/build`
-2. `cmake ..` to configure cmake.
-3. `make` to compile.
-4. `./<executable_name>` to run.
+1. `mkdir c++/build`
+2. `cd c++/build`
+3. `cmake ..` to configure cmake.
+4. `make` to compile.
+5. `./<executable_name>` to run.
 
 ## Manim Hit-or-Miss Transform Animation
-I developed an animations to visualize Hit-or-Miss Transform in action using [Manim library](https://www.manim.community/). The relative code is in `hitmiss-animation` folder. 
+I developed an animation to visualize Hit-or-Miss Transform in action using [Manim library](https://www.manim.community/). The relative code is in `hitmiss-animation` folder. 
 
 If you want to re-render it yourserlf you need to install manim and follow the [guide](https://docs.manim.community/en/stable/installation.html#local-installation).
 
